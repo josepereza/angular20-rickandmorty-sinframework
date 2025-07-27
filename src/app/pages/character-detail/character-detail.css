@@ -1,0 +1,85 @@
+.detail-container {
+  padding: 2rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.detail-card {
+  display: flex; /* Por defecto, el layout es en fila (para escritorio) */
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%; /* Asegura que no se desborde en pantallas medianas */
+  animation: slideInUp 1.2s;
+}
+
+.detail-card img {
+  width: 300px; /* Ancho fijo para la imagen en escritorio */
+  /* object-fit: cover es una buena práctica para que la imagen cubra su espacio sin deformarse */
+  object-fit: cover;
+}
+
+.detail-card .info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* Organiza el contenido de la info verticalmente */
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 1.5rem; /* Un poco más de espacio */
+  padding: 0.8rem 1.5rem;
+  background-color: #00bcd4;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: fit-content; /* Asegura que el botón no ocupe todo el ancho */
+}
+
+.back-button:hover {
+  background-color: #0097a7;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------- */
+/* --- ESTILOS PARA DISPOSITIVOS MÓVILES --- */
+/* ----------------------------------------- */
+@media (max-width: 768px) {
+  .detail-container {
+    /* Reducir el padding en móviles para dar más espacio al contenido */
+    padding: 2rem 1rem 1rem;
+  }
+
+  .detail-card {
+    /* Cambia la dirección del flexbox a columna: un elemento encima del otro */
+    flex-direction: column;
+  }
+
+  .detail-card img {
+    /* La imagen ahora ocupa el 100% del ancho de la tarjeta */
+    width: 100%;
+    /* La altura se ajusta automáticamente para mantener la proporción y no deformarse */
+    height: auto;
+    /* Definimos una altura máxima para que no sea excesivamente grande */
+    max-height: 400px;
+  }
+
+  .detail-card .info {
+    /* Reducimos el padding en la sección de información para pantallas pequeñas */
+    padding: 1.5rem;
+  }
+}

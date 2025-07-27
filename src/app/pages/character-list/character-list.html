@@ -1,0 +1,11 @@
+<div class="list-container">
+  <input type="text" [formControl]="searchControl" placeholder="Search characters...">
+  <div class="grid">
+    @for (character of characters(); track character.id) {
+      <div class="card" [routerLink]="['/character', character.id]">
+        <img [src]="character.image" [alt]="character.name">
+        <h3>{{ character.name }}</h3>
+      </div>
+    }
+  </div>
+</div>
