@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { inject, Injectable, Signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse, Character } from '../interfaces/character';
 
@@ -14,7 +14,12 @@ export class RickAndMorty {
     return this.http.get<ApiResponse>(`${this.apiUrl}/character/?name=${searchTerm}`);
   }
 
-  getCharacterById(id: number): Observable<Character> {
+
+  getCharacterById(id: string): Observable<Character> {
     return this.http.get<Character>(`${this.apiUrl}/character/${id}`);
+  }
+ 
+  getCharacterByIdRs(id:Signal<string>) {
+    return httpResource<Character | undefined>(() => `${this.apiUrl}/character/${id()}`);
   }
 }

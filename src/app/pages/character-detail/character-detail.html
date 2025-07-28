@@ -4,6 +4,7 @@
       <img [src]="character()?.image" [alt]="character()?.name">
       <div class="info">
         <h1>{{ character()?.name }}</h1>
+        <p>{{user.value()?.name}}</p>
         <p><strong>Status:</strong> {{ character()?.status }}</p>
         <p><strong>Species:</strong> {{ character()?.species }}</p>
         <p><strong>Gender:</strong> {{ character()?.gender }}</p>
