@@ -5,10 +5,11 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { Character } from '../../interfaces/character';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-character-list',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, NgOptimizedImage],
   templateUrl: './character-list.html',
   styleUrl: './character-list.css'
 })
