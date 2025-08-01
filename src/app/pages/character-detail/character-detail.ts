@@ -12,7 +12,7 @@ import { httpResource } from '@angular/common/http';
   templateUrl: './character-detail.html',
   styleUrl: './character-detail.css'
 })
-export class CharacterDetail {
+export default class CharacterDetail {
  private route = inject(ActivatedRoute);
   private rickAndMortyService = inject(RickAndMorty);
 id=input.required<string>()

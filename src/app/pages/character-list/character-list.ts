@@ -13,7 +13,7 @@ import { NgOptimizedImage } from '@angular/common'
   templateUrl: './character-list.html',
   styleUrl: './character-list.css'
 })
-export class CharacterList {
+export default class CharacterList {
   private rickAndMortyService = inject(RickAndMorty);
   searchControl = new FormControl('');
   characters = signal<Character[]>([]);
